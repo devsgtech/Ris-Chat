@@ -1,0 +1,7 @@
+{
+  "name": "Ris-Chat",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
