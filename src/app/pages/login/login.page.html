@@ -1,0 +1,46 @@
+<ion-header class="loginheader" [translucent]="true">
+  <ion-toolbar>
+    <!-- <ion-title>login</ion-title> -->
+    <ion-buttons style="padding-left: 15px" slot="start">
+      <ion-img [src]="img.AppLogo"></ion-img>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-img class="loginimg" [src]="img.LoginImg"></ion-img>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <ng-container>
+      <div style="margin-left: 18px; margin-right: 18px">
+        <p class="login_top">Login</p>
+        <div style="border-bottom: 1px solid black" class="flext-between normalPaddingLeft normalPaddingRight smallMarginBottom">
+          <div class="flext-between">
+            <ion-button style="--padding-start: 2px" class="smallRippleBtn ion-no-margin" fill="clear">
+              <ion-icon class="icons" [src]="img.UserName"></ion-icon>
+            </ion-button>
+          </div>
+          <ion-input class="inputs" type="text" name="username" formControlName="uUsername" placeholder="Username" [(ngModel)]="uUsername"></ion-input>
+        </div>
+        <app-form-error class="error" [errorMessage]="errorMessages.ERR_REQUIRED_FIELD" [showError]="validationCheck('uUsername')"></app-form-error>
+        <div style="border-bottom: 1px solid black" class="flext-between normalPaddingLeft normalPaddingRight smallMarginBottom">
+          <div class="flext-between">
+            <ion-button style="--padding-start: 2px" class="smallRippleBtn ion-no-margin" fill="clear">
+              <ion-icon class="icons" [src]="img.PasswordLockIcon"></ion-icon>
+            </ion-button>
+          </div>
+          <ion-input class="inputs" [clearOnEdit]="true" type="password" name="password" formControlName="uPass" placeholder="Password" [(ngModel)]="uPass"></ion-input>
+        </div>
+        <app-form-error class="error" [errorMessage]="errorMessages.ERR_REQUIRED_FIELD" [showError]="validationCheck('uPass')"></app-form-error>
+        <div>
+          <p (click)="forgot_pass()" class="forgotpass">Forgot <span class="purple">Username</span> or <span class="purple">Password</span> ?</p>
+        </div>
+      </div>
+      <ion-button type="submit" shape="round" class="login_button" expand="full">Login</ion-button>
+      <div class="register center"><p>Don't have account? <span (click)="register()" class="blue"> Register</span></p></div>
+      <div class="center"><p class="blue bold">Report</p></div>
+      <div class="center"><p class="blue bold">Guidelines</p></div>
+    </ng-container>
+  </form>
+</ion-content>

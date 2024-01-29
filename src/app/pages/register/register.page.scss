@@ -1,0 +1,158 @@
+// .back {
+//     // margin-top: 20px;
+//     margin-left: 15px;
+//     height: 30px;
+//     width: 30px;
+//     border-radius: 50%;
+//     overflow: hidden;
+//     --background: none;
+//     --background-activated: none;
+//     color: #98cd67;
+//     background-image: url("../../../../assets/back.svg");
+//   }
+.white1{
+    color:#8945EF;
+    --color:#8945EF;
+}
+
+.title {
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    color: #8945EF !important;
+    padding-inline: 0px;
+    text-align: -webkit-left;
+  }
+  
+  .ios.title{
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    color: #8945EF !important;
+    padding-inline: 0px;
+    text-align: -webkit-left;
+    padding-inline-start: 55px;
+  }
+.content {
+    --ion-background-color: white;
+    --min-height: 50px;
+    --background: white;
+}
+ion-input{
+    --highlight-color-focused:#8945EF;
+    --highlight-color-valid:#8945EF;
+    --highlight-color-invalid:#ef233c;
+    
+}
+ion-select{
+    --highlight-color-focused:#8945EF;
+    --highlight-color-valid:#8945EF;
+    --highlight-color-invalid:#ef233c;
+}
+
+.invalidgenderspan{
+    margin: 2px 0px 0px 16px;
+    font-size: 0.8rem;
+    color: #ef233c;
+}
+
+.save_button {
+    --border-radius: 10px;
+    // margin-top: 12%;
+    margin-left: 8px;
+    margin-right: 8px;
+    --background: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
+    --background-activated: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
+    font-size: 15px;
+    font-family: "medium", sans-serif;
+    text-transform: none;
+  }
+
+ .footer-md {
+    --border-width: 0 0 0;
+    -webkit-box-shadow: none ;
+    box-shadow: none;
+}
+
+    // .android-bottom-safe-area {
+    //     padding-bottom: var(safe-area-inset-bottom) !important;
+    //     padding-bottom: env(safe-area-inset-bottom) !important;
+    //     background-color: var(--ion-color-secondary);  
+    //   }
+// ::ng-deep ion-input .label-text{
+//     color: #8945EF;
+// }
+// .neww .label-text{
+//     color: #8945EF;
+// }
+// .neww .div .label-text{
+//     color: #8945EF;
+// }
+
+// .neww .div.label-text-wrapper{
+//     color: #8945EF;
+// }
+// .label-text-wrapper{
+//     color: #8945EF;
+// }
+// .div .label-text-wrapper{
+//     color: #8945EF;
+// }
+// .sc-ion-alert-ios-h {
+//     --background: white;
+// }
+// .alert-wrapper.sc-ion-alert-ios{
+//     background:white;
+// }
+// .label-text-wrapper.sc-ion-input-md {
+//     color: #8945EF;
+// }
+// .neww{
+//     .label{
+//     color: red;
+//     --color: red;
+
+//     .label-text-wrapper{
+//         color: red;
+//     --color: red;
+
+//     }
+//     }
+// }
+
+// ion-select .label.label-text-wrapper{
+//     color: red;
+//     --color: red;
+    
+// }
+// label-text-wrapper{
+//     color: red;}
+
+// ion-item {
+//     --highlight-height: 2px;
+//     --highlight-color-focused: #43e7f3;
+//     --highlight-color-valid: #6f58d8;
+//     --highlight-color-invalid: #ff46be;
+//   }
+
+// ion-input.ng-invalid{
+
+    // .label{
+    //     .div .label-text-wrapper{
+            // color: pink;
+        // }
+    // }
+// }
+
+
+.iosinvalid{
+  border-bottom : 0.5px solid #ef233c;
+}
+.iosvalid{
+    border-bottom : 0.5px solid lightgrey;
+  }
+
+  .androidinvalid{
+    border-bottom : 1px solid #ef233c;
+  }
+  .androidvalid{
+      border-bottom : 1px solid lightgrey;
+    }

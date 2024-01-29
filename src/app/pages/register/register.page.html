@@ -1,0 +1,58 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<ion-header [translucent]="true">
+  <ion-toolbar class="content">
+    <ion-buttons slot="start">
+      <ion-button class="white1" (click)="back()"><ion-icon size="large" name="arrow-back-circle-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title class="title" > Register </ion-title>
+    <ion-icon slot="end" style="margin-right: 20px; height: 26px; width: 22%;" [src]="img.AppLogo"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="profileFORM" (ngSubmit)="updateProfile()">
+    <ion-list>
+      <ion-item lines="none">
+        <ion-input errorText="Invalid first name" formControlName="first_name" label="First Name" labelPlacement="floating" placeholder="First Name"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input errorText="Invalid last name" formControlName="last_name" label="Last Name" labelPlacement="floating" placeholder="Last Name"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input errorText="Invalid Username" formControlName="username" label="Username" labelPlacement="floating" placeholder="Username"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input errorText="Invalid Email" formControlName="email" label="Email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-z]{2,}$" labelPlacement="floating" placeholder="Email"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input errorText="Invalid phone number" maxlength="10" formControlName="phone_number" type="tel" label="Phone Number" labelPlacement="floating" placeholder="Phone Number"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-select (click)="selectboxtouch = true" [ngClass]="forfont()" formControlName="gender" color="danger" class="neww" label="Select Gender" label-placement="floating">
+          <ion-select-option value="male">Male</ion-select-option>
+          <ion-select-option value="female">Female</ion-select-option>
+          <ion-select-option value="others">Others</ion-select-option>
+          <ion-select-option value="prefernottosay">Prefer not to say</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <span class="invalidgenderspan" *ngIf="selectboxtouch && profileFORM.get('gender')?.value == '' ">Invalid gender</span>
+      <ion-item lines="none">
+        <ion-input errorText="Invalid dob" formControlName="dob" type="date" label="Date of Birth" labelPlacement="floating" placeholder="Date of Birth"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input errorText="Invalid password" type="password" (input)="clearconfirmpass()" formControlName="password" label="Password" labelPlacement="floating" placeholder="Password"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input errorText="Invalid confirm password" type="password" formControlName="confirm_password" label="Confirm Password" labelPlacement="floating" placeholder="Confirm Password"></ion-input>
+      </ion-item>
+    </ion-list>
+    
+</form>
+</ion-content>
+<ion-footer >
+  <ion-button *ngIf="!hideButtomKeyboardOpen" (click)="updateProfile()" type="submit" shape="round" class="save_button" expand="full">SAVE</ion-button>
+</ion-footer>
