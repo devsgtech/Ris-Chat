@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { LoginPage } from './pages/login/login.page';
 import { HelperService } from './services/helper.service';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
+import { DatabaseService } from './services/database.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,7 @@ export class AppComponent {
   constructor(
     private helper: HelperService,
     private Statusbar: StatusBar,
+    private db: DatabaseService,
     private screenOrientation: ScreenOrientation,
     private platform : Platform
     ) {
@@ -22,8 +23,21 @@ export class AppComponent {
   }
 
   login(){
-    this.helper.pushRootPage('login', {animated: false}).catch(()=>{});
+    this.platform.ready().then(() => {
+      this.db.getLoggedInStatus().then( async res => {
+        if(res) 
+        {
+          this.helper.pushRootPage('tab1', "");
+        }
+        else{
+          this.helper.pushRootPage('login', "");
+        }
+      })
+      .catch( err => {
+      })
+    })
   }
+
   initializeApp(){
     this.platform.ready().then(() => {
     this.Statusbar.styleDefault();

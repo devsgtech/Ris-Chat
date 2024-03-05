@@ -1,0 +1,71 @@
+.ios.title{
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    color: #8945EF !important;
+    padding-inline: 0px;
+    text-align: -webkit-left;
+    padding-inline-start: 55px;
+  }
+.content {
+    --ion-background-color: white;
+    --min-height: 50px;
+    --background: white;
+}
+.white1{
+    color:#8945EF;
+    --color:#8945EF;
+}
+.title {
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    padding-left: 0px;
+    color: #8945EF !important;
+    padding-inline: 0px;
+    text-align: -webkit-left;
+  }
+  .marginLR{
+    margin-left: 20px; 
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.userfield{
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    margin-top: 2px;
+    --padding-start: 10px;
+    --highlight-color-invalid: none;
+    --highlight-color-focused: none;
+    --highlight-color-valid: none;
+}
+.footer-md {
+    --border-width: 0 0 0;
+    -webkit-box-shadow: none ;
+    box-shadow: none;
+}
+.issue{
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    max-height: 300px;
+    overflow: scroll;
+    --highlight-color-invalid: none;
+    --highlight-color-valid: none;
+    --highlight-color-focused: none;
+    --padding-start: 10px;
+    --padding-bottom: 5px;
+    --padding-end: 5px;
+    --padding-top: 5px;
+    min-height: 35px;
+    margin-top: 2px;
+    min-height: 100px;
+}
+.reportButton {
+    --border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 18px;
+    margin-right: 18px;
+    --background: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
+    --background-activated: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
+    font-size: 15px;
+    font-family: "medium", sans-serif;
+    text-transform: none;
+}

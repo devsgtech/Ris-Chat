@@ -3,7 +3,11 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Vali
 import { NavController, Platform } from '@ionic/angular';
 import { IMG, VALIDATION_MSG } from 'src/app/services/constant.service';
 import { HelperService } from 'src/app/services/helper.service';
-
+import * as firebase from 'firebase/app';
+import 'firebase/database';
+import 'firebase/auth';
+import * as _ from 'lodash';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -13,31 +17,36 @@ export class RegisterPage implements OnInit {
   img = IMG;
   profileFORM!: FormGroup;
   errorMessages = VALIDATION_MSG;
-  selectboxtouch! :Boolean;
+  selectboxtouchgender! :Boolean;
+  selectboxtouchgrade! :Boolean;
   hideButtomKeyboardOpen = false;
+  users = firebase.database().ref('/UserData/');
+  valueCheck : boolean = false;
+  lastRecord : any;
+  emailMatch : boolean = false;
+  usernameMatch : boolean = false;
+  platform1 : any;
+
   constructor(private navCtrl: NavController,
+    private auth: AuthenticationService,
     private fb: FormBuilder,
     private cdRef: ChangeDetectorRef,
     private platform : Platform,
     private helper: HelperService) {
-      // this.selectboxvalid = true;
     this.profileform();
-
+    this.platform1 = platform;
     window.addEventListener('keyboardDidShow', (event) => {
       this.hideButtomKeyboardOpen = true;
       this.cdRef.detectChanges();
-      console.log("oppeennnnn");
   });
 
   window.addEventListener('keyboardDidHide', () => {
     this.hideButtomKeyboardOpen = false;
     this.cdRef.detectChanges();
-    console.log("HHIIDDEEE");
-    // Describe your logic which will be run each time keyboard is closed.
   });
-   }
-
+  }
   ngOnInit() {
+
   }
   profileform(){
     this.profileFORM = this.fb.group({
@@ -47,22 +56,14 @@ export class RegisterPage implements OnInit {
       email: new FormControl("", Validators.compose([Validators.required])),
       phone_number: new FormControl("", Validators.compose([Validators.required,Validators.minLength(9),Validators.maxLength(10)])),
       gender: new FormControl("", Validators.compose([Validators.required])),
-      dob: new FormControl("", Validators.compose([Validators.required])),
+      dob: new FormControl("", Validators.compose([Validators.required, this.dateValidator1()])),
+      grade: new FormControl("", Validators.compose([Validators.required])),
       password: new FormControl("", Validators.compose([Validators.required,Validators.minLength(6)])),
       confirm_password: new FormControl("", Validators.compose([Validators.required,Validators.minLength(6),this.myCustomValidator('password')])),
     }, { 
       validators: this.password.bind(this)
     });
-
-    // this.profileFORM.controls['first_name'].setValue('karanpreet');
-    // this.profileFORM.controls['last_name'].setValue('Singh');
-    // this.profileFORM.controls['username'].setValue('karan1104');
-    // this.profileFORM.controls['email'].setValue('karanroxx1104@gmail.com');
-    // this.profileFORM.controls['phone_number'].setValue('9876200895');
-    // this.profileFORM.controls['gender'].setValue('male');
-    // this.profileFORM.controls['dob'].setValue('2000-04-11');
   }
-
   myCustomValidator(fieldNameOrVal:any, valType = 'equalTo'): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
       const input = control.value;
@@ -77,20 +78,76 @@ export class RegisterPage implements OnInit {
   clearconfirmpass(){
     this.profileFORM.controls['confirm_password'].setValue('');
   }
-  updateProfile(){
-    // this.selectbox();
-    this.selectboxtouch = true;
+  async updateProfile(){
+    this.selectboxtouchgender = true;
+    this.selectboxtouchgrade = true;
+    this.valueCheck = false;
+    this.emailMatch = false;
+    this.usernameMatch = false;
     this.profileFORM.markAllAsTouched();
-    console.log("this.profileForm.valid",this.profileFORM.valid);
-    console.log("this.profileForm.validetgfd",this.profileFORM);
     this.cdRef.detectChanges();
     if(this.profileFORM.valid){
-      this.helper.presentToast("Account creted Successfully","2000","top",2);
+      await this.checkFirstTimeUser();
     }else{
       this.helper.presentToast("Please enter valid fields","2000","top",3);
     }
-
-    // formData.append('user_api_token', USER_DETAILS.DATA.data.api_token);
+  }
+  dateValidator1(fieldNameOrVal ?: any, valType = 'equalTo'): ValidatorFn {
+   
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const selectedDate = new Date(control.value);
+      const today = new Date();
+      if (selectedDate > today) {
+        return { futureDate: true };
+      }
+      return null;
+    };
+  }
+  ionViewDidLeave(){
+    this.valueCheck = false;
+  }
+  async checkFirstTimeUser(){
+    this.helper.presentLoading("Please Wait")
+    await this.users.once('value', async snapshot => {
+      let keyList : any = [];
+      let item = snapshot.val();
+      await _.forEach(item, (val, key) => {
+        keyList.push(key);
+        this.lastRecord = key;
+      })
+      await _.forEach(keyList, async (val1, i) => {
+        await this.users.child(val1).once('value', async snapShot1 => {
+          const ss =  snapShot1.val();
+          if(ss.userName == this.profileFORM.value.username.toLowerCase())
+          {
+            this.valueCheck = true;
+            this.usernameMatch = true;
+          }
+          if(ss.email == this.profileFORM.value.email.toLowerCase())
+          {
+            this.valueCheck = true;
+            this.emailMatch = true;
+          }
+          if(this.lastRecord == val1)
+          {
+            if(ss.userName == this.profileFORM.value.username.toLowerCase())
+            {
+              this.helper.dismissLoading(2);
+              this.helper.presentToast("This username already exists. ","2000");
+            }
+            else if(ss.email == this.profileFORM.value.email.toLowerCase())
+              {
+                this.helper.dismissLoading(2);
+                this.helper.presentToast("This E-mail already exists. ","2000");
+              }
+            else{
+              await this.auth.createUser(this.valueCheck,this.profileFORM.value,this.usernameMatch);
+              this.helper.dismissLoading(2);
+            }
+          }
+        })
+      })
+    })
   }
   back(){
     this.navCtrl.back();
@@ -103,19 +160,34 @@ export class RegisterPage implements OnInit {
     }
     return password === confirmPassword ? null : { passwordNotMatch: true };
   }
-  // selectbox(){
-  //   console.log("wertyui333333")
-  //   this.selectboxvalid =  this.profileFORM.get('gender')?.value == '' ? true: false;
-  // }
-  forfont(){
+  forfontgender(){
+    if(this.profileFORM.get('gender')?.value == undefined){
+      this.profileFORM.controls['gender'].setValue('');
+    }
     if(this.platform.is('ios')){
-      if(this.selectboxtouch){
+      if(this.selectboxtouchgender){
         if(this.profileFORM.get('gender')?.value == ''){return "iosinvalid";}
         else{return "iosvalid";}
       }else{return "iosvalid";}
     }else{
-      if(this.selectboxtouch){
+      if(this.selectboxtouchgender){
         if(this.profileFORM.get('gender')?.value == ''){return "androidinvalid";}
+        else{return "androidvalid";}
+      }else{return "androidvalid";}
+    }
+  }
+  forfontgrade(){
+    if(this.profileFORM.get('grade')?.value == undefined){
+      this.profileFORM.controls['grade'].setValue('');
+    }
+    if(this.platform.is('ios')){
+      if(this.selectboxtouchgrade){
+        if(this.profileFORM.get('grade')?.value == ''){return "iosinvalid";}
+        else{return "iosvalid";}
+      }else{return "iosvalid";}
+    }else{
+      if(this.selectboxtouchgrade){
+        if(this.profileFORM.get('grade')?.value == ''){return "androidinvalid";}
         else{return "androidvalid";}
       }else{return "androidvalid";}
     }

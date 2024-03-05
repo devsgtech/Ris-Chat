@@ -1,6 +1,5 @@
 <ion-header class="loginheader" [translucent]="true">
   <ion-toolbar>
-    <!-- <ion-title>login</ion-title> -->
     <ion-buttons style="padding-left: 15px" slot="start">
       <ion-img [src]="img.AppLogo"></ion-img>
     </ion-buttons>
@@ -34,13 +33,15 @@
         </div>
         <app-form-error class="error" [errorMessage]="errorMessages.ERR_REQUIRED_FIELD" [showError]="validationCheck('uPass')"></app-form-error>
         <div>
-          <p (click)="forgot_pass()" class="forgotpass">Forgot <span class="purple">Username</span> or <span class="purple">Password</span> ?</p>
+          <p class="forgotpass">Forgot 
+            <span class="purple" (click)="resetPage(1)" >Username</span> or 
+            <span class="purple" (click)="resetPage(2)" >Password</span> ?</p>
         </div>
       </div>
       <ion-button type="submit" shape="round" class="login_button" expand="full">Login</ion-button>
-      <div class="register center"><p>Don't have account? <span (click)="register()" class="blue"> Register</span></p></div>
-      <div class="center"><p class="blue bold">Report</p></div>
-      <div class="center"><p class="blue bold">Guidelines</p></div>
+      <div class="register center"><p>Don't have account? <span (click)="register()" class="purple"> Register</span></p></div>
+      <div class="center" (click)="navigate('report')" ><p class="blue bold">Report</p></div>
+      <div class="center" (click)="navigate('guideline')" ><p class="blue bold">Guidelines</p></div>
     </ng-container>
   </form>
 </ion-content>

@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-toolbar class="content">
+    <ion-buttons slot="start">
+      <ion-button class="white1" (click)="pop()"><ion-icon size="large" name="arrow-back-circle-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title class="title" > {{groupName}} </ion-title>
+    <ion-icon slot="end" style="margin-right: 20px; height: 26px; width: 22%;" [src]="img.AppLogo"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollEnd()">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ng-container *ngIf="chatHistory?.length">
+    <ion-list lines="none">
+      <ng-container *ngFor = "let item of chatHistory; let i = index;" class="chat-container" >
+          <ion-item class="msg-item ion-no-padding noPaddingEnd ion-text-wrap" lines="none">
+            <div class="bubble {{(item?.sentby == user_id) ? 'me' :'other'}}" [slot]="(item?.sentby != user_id) ? 'start':'end'">
+              <p class="msg ion-no-margin smallText">
+                <ng-container *ngIf="item?.sentby !== user_id">
+
+
+
+                  <ng-container *ngFor="let item1 of userNames">
+                    <ng-container 
+                    *ngIf="item?.sentby == item1.uid">
+                      <span class="name" *ngIf="isFirstMessage(i, item1.uid)">
+
+                        {{item1.name}}
+                        <br>
+                      </span>
+                    </ng-container>
+                  </ng-container>
+
+
+                </ng-container>
+                {{item?.message}}
+              </p>
+              <div class="msg-time xSmallText">
+                {{item?.dateOfMessage}}
+              </div>
+            </div>
+          </ion-item>
+      </ng-container>
+    </ion-list>
+  </ng-container>
+</ion-content>
+<ion-footer class="footerClass">
+  <form [formGroup]="testForm" (submit)="onSubmit()"> 
+  <ion-grid>
+    <ion-row>
+      <ion-col class="input">
+        <ion-input #myTextarea formControlName="input" [(ngModel)]="inputData"
+          placeholder="Write your message..." class="inputField"></ion-input>
+            <ion-icon style="font-size: 42px;" (click)="onSubmit()" [src]="img.SEND_MESSAGE"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </form>
+</ion-footer>

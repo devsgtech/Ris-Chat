@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar class="content">
+    <ion-buttons slot="start">
+      <ion-button class="white1" (click)="back()"><ion-icon size="large" name="arrow-back-circle-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title class="title" > Guidelines </ion-title>
+    <ion-icon slot="end" style="margin-right: 20px; height: 26px; width: 22%;" [src]="img.AppLogo"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ng-container>
+    <ion-row style="height: 45px; ">
+      <div *ngFor="let wl of Button" class="header_class">
+
+        <ion-segment-button *ngIf="platform.is('ios')" (click)="change_tab(wl)" value="wl.id"
+        style="height: 95%;"
+          [ngStyle]="{'border-bottom' : wl.isSelected ? '2.5px solid #8945EF':''}">
+          <ion-label [ngStyle]="{'color':wl.isSelected?'#8945EF':'#000000','font-weight':'bold'}">{{wl.title}}</ion-label>
+        </ion-segment-button>
+
+        <ion-segment-button *ngIf="platform.is('android')" (click)="change_tab(wl)" value="wl.id"
+        style="height: 100%;"
+          [ngStyle]="{'border-bottom' : wl.isSelected ? '2.5px solid #8945EF':''}">
+          <ion-label [ngStyle]="{'color':wl.isSelected?'#8945EF':'#000000','font-weight':'bold'}">{{wl.title}}</ion-label>
+        </ion-segment-button>
+      </div>
+    </ion-row>
+  </ng-container>
+
+  <ng-container *ngIf="selectedTab == 'rule'">
+    <ul>
+
+      <li>No Bullying.</li>
+      <li>Treat everyone with respect.</li>
+      <li>No screenshotting chat to share with others.</li>
+      <li>No offensive language, meaning no swearing, no racism and no sexual language.</li>
+      <li>No inappropriate context.</li>
+      <li>Chat will be used for school related context only.</li>
+      <li>
+        <b>
+          Breaking the rules once will indicate in a warning. Twice will lead to a day timeout.
+        </b>
+      </li>
+      <li>
+        <b>
+          Three times leads to four days timeout. 
+        </b>
+      </li>
+      <li>
+        <b>
+          Four times leads to ban. Rule breaking count will reset every semester. 
+        </b>
+      </li>
+  
+    </ul>
+  </ng-container>
+  <ng-container *ngIf="selectedTab == 'whatsthis'">
+    <p style="font-size: 1.3rem; padding: 20px; text-align: left;">
+      This chatting app is aimed for all students from grade one to grade ten. The app can be used to talk about school work, ask for feedback, tips and help as well as you can give the same in return. The app should be a safe place for students to grow further and improve their communication skills. 
+    </p>
+  </ng-container>
+  
+</ion-content>

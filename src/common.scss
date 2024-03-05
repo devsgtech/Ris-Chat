@@ -8,3 +8,19 @@ ion-item{
 ion-list{
     background: #ffffff !important;
 }
+
+.hoverButton{
+      --background: #9748ee;
+      --background-activated: #9748ee;
+      --background-hover: #9748ee;
+      --background-focused: #9748ee;
+  }
+
+.action-sheet{
+    .iconRed{
+        color: #ed0000;
+        .action-sheet-icon.sc-ion-action-sheet-md {
+            --color:#ed0000;
+        }
+    }
+}

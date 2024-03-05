@@ -1,17 +1,46 @@
+
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+  <ion-toolbar class="content">
+    <ion-title class="title" > Chats </ion-title>
+    <ion-icon slot="end" style="margin-right: 20px; height: 26px; width: 22%;" [src]="img.AppLogo"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  
+  <ng-container *ngIf="!allChats?.length && isLoading">                        
+    <ion-list lines="full" class="ion-no-padding skeletonList">
+      <ion-item *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <p><ion-skeleton-text animated style="width: 60%; height: 14px"></ion-skeleton-text></p>
+          <p><ion-skeleton-text animated style="width: 100%; height: 16px"></ion-skeleton-text></p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+  <ion-grid style="display: block;">
+    <ion-item *ngFor="let item of allChats" style="margin-right: 20px;">
+      <ion-row style="width: 100%;">
+        <ion-col size="11" class="col-umn1" (click)="viewChat(item)">
+          <p style="margin-left: 10px;">
+            <b>
+              {{item.key.name}}
+            </b>
+          </p>
+          <p class="wrapExtra">
+            {{item.value}}
+          </p>
+        </ion-col>
+          <ion-col size="1" class="col-umn" (click)="viewChat(item)">
+            <ion-badge color="success"  *ngIf="item.seen == false && user.id !== item.sentBy && item.unReadCount > 0">
+              {{item.unReadCount}}
+            </ion-badge>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-grid>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>

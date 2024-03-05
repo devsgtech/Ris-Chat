@@ -1,20 +1,12 @@
-// .back {
-//     // margin-top: 20px;
-//     margin-left: 15px;
-//     height: 30px;
-//     width: 30px;
-//     border-radius: 50%;
-//     overflow: hidden;
-//     --background: none;
-//     --background-activated: none;
-//     color: #98cd67;
-//     background-image: url("../../../../assets/back.svg");
-//   }
 .white1{
     color:#8945EF;
     --color:#8945EF;
 }
-
+.error-message{
+  margin-left: 15px;
+    font-size: 0.8rem;
+    color: red;
+}
 .title {
     font-size: 1.4rem !important;
     font-weight: 600;
@@ -22,7 +14,9 @@
     padding-inline: 0px;
     text-align: -webkit-left;
   }
-  
+  ion-button.save_button.ios{
+    margin-bottom: calc(env(safe-area-inset-bottom));
+  }
   .ios.title{
     font-size: 1.4rem !important;
     font-weight: 600;
@@ -56,7 +50,7 @@ ion-select{
 
 .save_button {
     --border-radius: 10px;
-    // margin-top: 12%;
+    margin-bottom: 10px; 
     margin-left: 8px;
     margin-right: 8px;
     --background: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
@@ -71,76 +65,6 @@ ion-select{
     -webkit-box-shadow: none ;
     box-shadow: none;
 }
-
-    // .android-bottom-safe-area {
-    //     padding-bottom: var(safe-area-inset-bottom) !important;
-    //     padding-bottom: env(safe-area-inset-bottom) !important;
-    //     background-color: var(--ion-color-secondary);  
-    //   }
-// ::ng-deep ion-input .label-text{
-//     color: #8945EF;
-// }
-// .neww .label-text{
-//     color: #8945EF;
-// }
-// .neww .div .label-text{
-//     color: #8945EF;
-// }
-
-// .neww .div.label-text-wrapper{
-//     color: #8945EF;
-// }
-// .label-text-wrapper{
-//     color: #8945EF;
-// }
-// .div .label-text-wrapper{
-//     color: #8945EF;
-// }
-// .sc-ion-alert-ios-h {
-//     --background: white;
-// }
-// .alert-wrapper.sc-ion-alert-ios{
-//     background:white;
-// }
-// .label-text-wrapper.sc-ion-input-md {
-//     color: #8945EF;
-// }
-// .neww{
-//     .label{
-//     color: red;
-//     --color: red;
-
-//     .label-text-wrapper{
-//         color: red;
-//     --color: red;
-
-//     }
-//     }
-// }
-
-// ion-select .label.label-text-wrapper{
-//     color: red;
-//     --color: red;
-    
-// }
-// label-text-wrapper{
-//     color: red;}
-
-// ion-item {
-//     --highlight-height: 2px;
-//     --highlight-color-focused: #43e7f3;
-//     --highlight-color-valid: #6f58d8;
-//     --highlight-color-invalid: #ff46be;
-//   }
-
-// ion-input.ng-invalid{
-
-    // .label{
-    //     .div .label-text-wrapper{
-            // color: pink;
-        // }
-    // }
-// }
 
 
 .iosinvalid{

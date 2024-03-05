@@ -1,0 +1,16 @@
+<div class="alert-box">
+  <div class="alert-content">
+    <p>OTP verification</p>
+    <p style="font-size: 13px;">
+      Note: The confirmation code has been sent to your mail.
+    </p>
+    <ion-item>
+      <ion-input class="inputs" type="tel"  (ionInput)="changeField($event)"
+        placeholder="Enter OTP" [(ngModel)]="otp"></ion-input>
+    </ion-item>
+    <div style="display: flex; justify-content: space-evenly;">
+      <ion-button class="cancelbutton" (click)="close('0')">Cancel</ion-button>
+      <ion-button [disabled]="disableConfirm" class="confirmbutton" (click)="close('1')">Confirm</ion-button>
+    </div>
+  </div>
+</div>

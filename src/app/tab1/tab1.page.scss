@@ -1,0 +1,91 @@
+.col-umn{
+    align-self: center;
+    padding: 0px;
+    flex: 0;
+  }
+.col-umn1{
+  align-self: center;
+  padding: 0px;
+  flex: 0;
+}
+.slidesImages{
+    transform: scale3d(0.7) translate3d(1px, 1px, 1px);
+    ion-slide{
+      min-width: 100px !important;
+      min-height: 100px !important;
+    }
+    ion-card, img{
+      height: 100px;
+      width: 100px;
+      min-width: 100px;
+      min-height: 100px;
+      object-fit: cover;
+    }
+    .slideImagesCard{
+      position: relative;
+      margin-top: 20px;
+      margin-left: 20px;
+      .slideTrashBtn{
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 1.4em;
+        z-index: 9;
+        ion-icon{
+          background: #ffffff;
+          border-radius: 50px !important;
+        }
+      }
+      .card-bg{
+        min-height: 100px;
+        min-width: 100px;
+      }
+      .imgOverButton{
+        position: absolute;
+        margin-bottom: 20;
+        bottom: 0;
+        background: var(--ion-color-white-contrast);
+        --background: var(--ion-color-white-contrast);
+        width: 100%;
+        opacity: 0.9;
+        z-index: 10;
+      }
+    }
+  }
+  .content {
+    --ion-background-color: white;
+    --min-height: 50px;
+    --background: white;
+}
+.white1{
+    color:#8945EF;
+    --color:#8945EF;
+}
+.title {
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    color: #8945EF !important;
+    padding-inline: 20px;
+    text-align: -webkit-left;
+  }
+  
+  .ios.title{
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    color: #8945EF !important;
+    padding-inline: 0px;
+    text-align: -webkit-left;
+    padding-inline-start: 20px;
+  }
+  .messageshead{
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: 0px;
+    margin-left: 17px;
+  }
+.wrapExtra{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-left: 10px;
+}

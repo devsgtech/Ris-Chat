@@ -1,17 +1,83 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-grid>
+    <ion-img class="logoImg" [src]="img.AppLogo"></ion-img>
+  <div class="divHead">
+    {{userData?.userName}}
+  </div>
+  </ion-grid>
+  
+
+  <ion-grid>
+  <ion-item style="margin-right: 15px;">
+    <ion-row (click)="navigate('edit')" class="rowDivClass">  
+      <ion-col class="flex-center-center" size="2">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-col>
+      <ion-col class="flex-start-center" size="8">
+        My Profile
+      </ion-col>
+      <ion-col class="flex-end-justify" size="2">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+
+  <ion-item style="margin-right: 15px;">
+    <ion-row (click)="navigate('report')" class="rowDivClass">   
+      <ion-col class="flex-center-center" size="2">
+        <ion-icon name="send-outline"></ion-icon>
+      </ion-col>
+      <ion-col class="flex-start-center" size="8">
+        Report
+      </ion-col>
+      <ion-col class="flex-end-justify" size="2">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+
+  <ion-item style="margin-right: 15px;">
+    <ion-row (click)="navigate('guideline')" class="rowDivClass">   
+      <ion-col class="flex-center-center" size="2">
+        <ion-icon name="book-outline"></ion-icon>
+      </ion-col>
+      <ion-col class="flex-start-center" size="8">
+        Guidelines
+      </ion-col>
+      <ion-col class="flex-end-justify" size="2">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+
+  <ion-item style="margin-right: 15px;">
+    <ion-row (click)="navigate('delete')" class="rowDivClass">   
+      <ion-col class="flex-center-center" size="2">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-col>
+      <ion-col class="flex-start-center" size="8">
+        Delete Account
+      </ion-col>
+      <ion-col class="flex-end-justify" size="2">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+
+  <ion-item style="margin-right: 15px;">  
+    <ion-row (click)="navigate('logout')" class="rowDivClass">   
+      <ion-col class="flex-center-center" size="2">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-col>
+      <ion-col class="flex-start-center" size="8">
+        Logout
+      </ion-col>
+      <ion-col class="flex-end-justify" size="2">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+
+  </ion-grid>
 </ion-content>

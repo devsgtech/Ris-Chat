@@ -1,0 +1,49 @@
+/* custom-alert.component.scss */
+.custom-alert {
+    --background: rgba(0, 0, 0, 0.5); /* Use rgba to set the background color with alpha (transparency) */
+  }
+  .inputs {
+    font-size: 12px;
+    font-family: "regular", sans-serif;
+    --highlight-color: none;
+    --highlight-color-invalid: none;
+  }
+  .alert-box {
+    position: fixed;
+    width: 70%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .confirmbutton {
+    --border-radius: 10px;
+    margin-top: 12%;
+    height: fit-content;
+    --background: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
+    --background-activated: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
+    font-size: 15px;
+    font-family: "medium", sans-serif;
+    text-transform: none;
+  }
+  .cancelbutton {
+    --border-radius: 10px;
+    height: fit-content;
+    margin-top: 12%;
+    --background: #484848;
+    font-size: 15px;
+    font-family: "medium", sans-serif;
+    text-transform: none;
+  }
+  .alert-content {
+    text-align: center;
+  }
+  
+  ion-button {
+    margin: 0 5px;
+  }
+  

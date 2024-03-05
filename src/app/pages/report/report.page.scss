@@ -1,0 +1,119 @@
+.content {
+    --ion-background-color: white;
+    --min-height: 50px;
+    --background: white;
+}
+  .title {
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    padding-left: 0px;
+    color: #8945EF !important;
+    padding-inline: 0px;
+    text-align: -webkit-left;
+  }
+  .ios.title{
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    color: #8945EF !important;
+    padding-inline: 0px;
+    text-align: -webkit-left;
+    padding-inline-start: 55px;
+  }
+  .white1{
+    color:#8945EF;
+    --color:#8945EF;
+}
+.top-btm{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.top-btm-radio{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+}
+ion-radio {
+    --border-radius: 50%;
+    --inner-border-radius: 50%;
+    --color: #ddd;
+    --color-checked: #8945EF;
+  }
+  
+  ion-radio.ios::part(container) {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .radio-checked.ios::part(container) {
+    border-color: #8945EF;
+  }
+.reportButton {
+    --border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 18px;
+    margin-right: 18px;
+    --background: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
+    --background-activated: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
+    font-size: 15px;
+    font-family: "medium", sans-serif;
+    text-transform: none;
+}
+.footer-md {
+  --border-width: 0 0 0;
+  -webkit-box-shadow: none ;
+  box-shadow: none;
+}
+.issue{
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    max-height: 300px;
+    overflow: scroll;
+    --highlight-color-invalid: none;
+    --highlight-color-valid: none;
+    --highlight-color-focused: none;
+    --padding-start: 10px;
+    --padding-bottom: 5px;
+    --padding-end: 5px;
+    --padding-top: 5px;
+    min-height: 35px;
+    margin-top: 2px;
+    min-height: 100px;
+}
+.userfield{
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    margin-top: 2px;
+    --padding-start: 10px;
+    --highlight-color-invalid: none;
+    --highlight-color-focused: none;
+    --highlight-color-valid: none;
+}
+.marginLR{
+    margin-left: 20px; 
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.iconHead{
+    margin-right: 20px; 
+    height: 26px; 
+    width: 22%;
+}
+.parentDiv{
+    margin-top: 10px; 
+    margin-bottom: 30px;
+    margin-left: 5px;
+}
+.error {
+    font-family: 'light', sans-serif;
+    font-size: 0.8rem;
+    
+  }
+.mar20{
+  margin-left: 20px; 
+  margin-top: 20px; 
+  margin-right: 20px;
+}

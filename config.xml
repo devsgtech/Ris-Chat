@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.rischat.sgtech" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Ris-Chat</name>
-    <description>An awesome Ionic/Cordova app.</description>
+    <description>RIS Chat application is a platform made for young students to expand learning experience. These students can communicate to their fellow mates and may also request for guidance through various chat groups.</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://localhost:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -47,6 +47,15 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
+            <string>Allow the app to let you take picture</string>
+        </config-file>
+        <config-file parent="NSPhotoLibraryAddUsageDescription" platform="ios" target="*-Info.plist">
+            <string>Allow the app to let you save picture.</string>
+        </config-file>
+        <config-file parent="NSPhotoLibraryUsageDescription" platform="ios" target="*-Info.plist">
+            <string>Allow the app to let you choose and save picture.</string>
+        </config-file>
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
         <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
         <icon height="29" src="resources/ios/icon/icon-small.png" width="29" />
@@ -92,6 +101,11 @@
         <splash height="2208" src="resources/ios/splash/Default-736h.png" width="1242" />
         <splash height="2436" src="resources/ios/splash/Default-2436h.png" width="1125" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
+        <icon height="216" src="resources/ios/icon/icon-108@2x.png" width="216" />
+        <splash height="2688" src="resources/ios/splash/Default-2688h~iphone.png" width="1242" />
+        <splash height="1242" src="resources/ios/splash/Default-Landscape-2688h~iphone.png" width="2688" />
+        <splash height="1792" src="resources/ios/splash/Default-1792h~iphone.png" width="828" />
+        <splash height="828" src="resources/ios/splash/Default-Landscape-1792h~iphone.png" width="1792" />
     </platform>
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />

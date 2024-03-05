@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar class="content">
+    <ion-buttons slot="start">
+      <ion-button class="white1" (click)="back()"><ion-icon size="large" name="arrow-back-circle-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title class="title" > Report </ion-title>
+    <ion-icon slot="end" class="iconHead" [src]="img.AppLogo"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div class="parentDiv">
+    <ion-radio-group #radioGroup (ionChange)="select($event)" style="width: 100%;">
+      <ion-item lines="none" style="height: 40px;">
+        <ion-label class="top-btm">Report a bug?</ion-label>
+        <ion-radio mode="md" class="top-btm-radio" slot="start" value="bug"></ion-radio>
+      </ion-item>
+      <ion-item lines="none" style="height: 40px;">
+        <ion-label class="top-btm">Report an user?</ion-label>
+        <ion-radio mode="md" class="top-btm-radio" slot="start" value="user"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </div>
+
+  <ng-container *ngIf="type">
+    <ng-container *ngIf="type == 'user'">
+      <form [formGroup]="userForm" (ngSubmit)="report('user')">
+        <div class="marginLR">
+          Enter your email address
+          <ion-input class="userfield" placeholder="Enter email address"
+            pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-z]{2,}$"
+            type="email" formControlName="mail" >
+          </ion-input>
+        </div>
+        <div style="margin-left: 25px;">
+          <app-form-error class="error" [errorMessage]="errorMessages.INVALID_EMAIL" [showError]="validationCheck('mail',1)"></app-form-error>
+        </div>
+        <div class="marginLR">
+          Who are you reporting?
+          <ion-input class="userfield" placeholder="Who are you reporting"
+            pattern="^[a-zA-Z0-9_.]+$"
+            type="text" formControlName="usernameControl" >
+          </ion-input>
+        </div>
+        <div style="margin-left: 25px;">
+          <app-form-error class="error" [errorMessage]="errorMessages.INVALID_USERNAME" [showError]="validationCheck('usernameControl',1)"></app-form-error>
+        </div>
+        <div style="margin-left: 20px; margin-top: 20px;
+        margin-right: 20px;">
+        What is the issue?
+          <ion-textarea [autoGrow]="true"
+          class="issue" type="text"
+          formControlName="issueControl" 
+          placeholder="Enter your issue here">
+          </ion-textarea>
+        </div>
+        <div style="margin-left: 25px;">
+          <app-form-error class="error" [errorMessage]="errorMessages.INVALID_DESCRIPTION" [showError]="validationCheck('issueControl',1)"></app-form-error>
+        </div>
+      </form>
+    </ng-container>
+    <ng-container *ngIf="type == 'bug'">
+      <form [formGroup]="bugForm" (ngSubmit)="report('bug')">
+        <div class="marginLR">
+          Enter your email address
+          <ion-input class="userfield" placeholder="Enter email address"
+            pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-z]{2,}$"
+            type="email" formControlName="mail" >
+          </ion-input>
+        </div>
+        <div style="margin-left: 25px;">
+          <app-form-error class="error" [errorMessage]="errorMessages.INVALID_EMAIL" [showError]="validationCheck('mail',2)"></app-form-error>
+        </div>
+        <div class="mar20">
+          What is the issue?
+          <ion-textarea [autoGrow]="true"
+          class="issue" type="text"
+          formControlName="issueControl" 
+          placeholder="Enter your issue here">
+          </ion-textarea>
+        </div>
+        <div style="margin-left: 25px;">
+          <app-form-error class="error" [errorMessage]="errorMessages.INVALID_DESCRIPTION" [showError]="validationCheck('issueControl',2)"></app-form-error>
+        </div>
+      </form>
+    </ng-container>
+  </ng-container>
+
+</ion-content>
+<ion-footer *ngIf="!hideButtomKeyboardOpen" style="margin-bottom: env(safe-area-inset-bottom); background: white; ">
+  <ion-button (click)="report('bug')" *ngIf="type == 'bug'" shape="round" class="reportButton"
+    expand="full">Report</ion-button>
+   <ion-button (click)="report('user')" *ngIf="type == 'user'" shape="round" class="reportButton"
+    expand="full">Report</ion-button>
+</ion-footer>

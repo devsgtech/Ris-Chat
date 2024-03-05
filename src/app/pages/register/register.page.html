@@ -1,8 +1,3 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header> -->
 <ion-header [translucent]="true">
   <ion-toolbar class="content">
     <ion-buttons slot="start">
@@ -23,36 +18,45 @@
         <ion-input errorText="Invalid last name" formControlName="last_name" label="Last Name" labelPlacement="floating" placeholder="Last Name"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-input errorText="Invalid Username" formControlName="username" label="Username" labelPlacement="floating" placeholder="Username"></ion-input>
+        <ion-input errorText="Invalid Username" formControlName="username" pattern="^[a-zA-Z0-9_.]+$" label="Username" labelPlacement="floating" placeholder="Username"></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-input errorText="Invalid Email" formControlName="email" label="Email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-z]{2,}$" labelPlacement="floating" placeholder="Email"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-input errorText="Invalid phone number" maxlength="10" formControlName="phone_number" type="tel" label="Phone Number" labelPlacement="floating" placeholder="Phone Number"></ion-input>
+        <ion-input errorText="Invalid phone number" maxlength="10" formControlName="phone_number"  pattern="^[0-9]{9,10}$"
+        type="tel" label="Phone Number" labelPlacement="floating" placeholder="Phone Number"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-select (click)="selectboxtouch = true" [ngClass]="forfont()" formControlName="gender" color="danger" class="neww" label="Select Gender" label-placement="floating">
+        <ion-select (click)="selectboxtouchgender = true" [ngClass]="forfontgender()" formControlName="gender" color="danger" class="neww" label="Select Gender" label-placement="floating">
           <ion-select-option value="male">Male</ion-select-option>
           <ion-select-option value="female">Female</ion-select-option>
           <ion-select-option value="others">Others</ion-select-option>
-          <ion-select-option value="prefernottosay">Prefer not to say</ion-select-option>
         </ion-select>
       </ion-item>
-      <span class="invalidgenderspan" *ngIf="selectboxtouch && profileFORM.get('gender')?.value == '' ">Invalid gender</span>
+      <span class="invalidgenderspan" *ngIf="selectboxtouchgender && profileFORM.get('gender')?.value == '' ">Invalid gender</span>
       <ion-item lines="none">
         <ion-input errorText="Invalid dob" formControlName="dob" type="date" label="Date of Birth" labelPlacement="floating" placeholder="Date of Birth"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-input errorText="Invalid password" type="password" (input)="clearconfirmpass()" formControlName="password" label="Password" labelPlacement="floating" placeholder="Password"></ion-input>
+        <ion-select (click)="selectboxtouchgrade = true" [ngClass]="forfontgrade()" formControlName="grade" color="danger" class="neww" label="Select Grade" label-placement="floating">
+          <!-- <ion-select-option value="8">Grade VIII</ion-select-option>
+          <ion-select-option value="9">Grade IX</ion-select-option> -->
+          <ion-select-option value="10">Grade X</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <span class="invalidgenderspan" *ngIf="selectboxtouchgrade && profileFORM.get('grade')?.value == '' ">Invalid grade</span>
+      <ion-item lines="none">
+        <ion-input errorText="Invalid password" type="password" (input)="clearconfirmpass()"
+         formControlName="password" label="Password" labelPlacement="floating" placeholder="Password"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-input errorText="Invalid confirm password" type="password" formControlName="confirm_password" label="Confirm Password" labelPlacement="floating" placeholder="Confirm Password"></ion-input>
+        <ion-input errorText="Invalid password" type="password" formControlName="confirm_password" label="Confirm Password" labelPlacement="floating" placeholder="Confirm Password"></ion-input>
       </ion-item>
     </ion-list>
     
 </form>
 </ion-content>
-<ion-footer >
+<ion-footer style="background: white;">
   <ion-button *ngIf="!hideButtomKeyboardOpen" (click)="updateProfile()" type="submit" shape="round" class="save_button" expand="full">SAVE</ion-button>
 </ion-footer>

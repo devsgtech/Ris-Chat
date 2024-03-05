@@ -1,0 +1,135 @@
+.white1{
+    color:#8945EF;
+    --color:#8945EF;
+}
+
+.title {
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    color: #8945EF !important;
+    padding-inline: 20px;
+    text-align: -webkit-left;
+  }
+  ion-button.save_button.ios{
+    margin-bottom: calc(env(safe-area-inset-bottom));
+  }
+  .ios.title{
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    color: #8945EF !important;
+    padding-inline: 0px;
+    text-align: -webkit-left;
+    padding-inline-start: 20px;
+  }
+.content {
+    --ion-background-color: white;
+    --min-height: 50px;
+    --background: white;
+}
+ion-checkbox {
+    --size: 22px;
+    --checkbox-background-checked: #8945EF;
+  }
+  
+  ion-checkbox::part(container) {
+    border-radius: 6px;
+    border: 2px solid #8945EF;
+  }
+.inputClass{ 
+    --highlight-color-focused:#8945EF;
+    --highlight-color-valid:#8945EF;
+    --highlight-color-invalid:#ef233c;
+}
+.disableInput{
+    --highlight-color-focused:  black;
+    --highlight-color-valid: black;
+    --highlight-color-invalid: black;
+    .input-label-placement-floating.sc-ion-input-md-h .input-wrapper.sc-ion-input-md {
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-align: start;
+        align-items: start;
+        border-bottom: 3px solid #660000;
+    }
+}
+ion-select{
+    --highlight-color-focused:#8945EF;
+    --highlight-color-valid:#8945EF;
+    --highlight-color-invalid:#ef233c;
+}
+
+.invalidgenderspan{
+    margin: 2px 0px 0px 16px;
+    font-size: 0.8rem;
+    color: #ef233c;
+}
+
+.save_button {
+    --border-radius: 10px;
+    margin-bottom: 10px; 
+    margin-left: 8px;
+    margin-right: 8px;
+    --background: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
+    --background-activated: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
+    font-size: 15px;
+    font-family: "medium", sans-serif;
+    text-transform: none;
+  }
+
+ .footer-md {
+    --border-width: 0 0 0;
+    -webkit-box-shadow: none ;
+    box-shadow: none;
+}
+
+.iosinvalid{
+  border-bottom : 0.5px solid #ef233c;
+}
+.iosvalid{
+    border-bottom : 0.5px solid lightgrey;
+  }
+
+  .androidinvalid{
+    border-bottom : 1px solid #ef233c;
+  }
+  .androidvalid{
+      border-bottom : 1px solid lightgrey;
+    }
+.logoImg {
+  max-width: 140px;
+  max-height: none;
+  margin: 20px auto;
+  margin-bottom: 0px;
+  background: white;
+  margin-top: 30px;
+}
+.flex-end-justify{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.flex-center-center{
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+.flex-start-center{
+  display: flex; 
+  justify-content: flex-start; 
+  align-items: center;
+}
+.rowDivClass{
+  border-radius: 10px; 
+  margin: 0px; 
+  width : 100%; 
+  height: 44px;
+}
+.divHead{
+  display: flex; 
+  justify-content: center; 
+  padding-bottom: 30px; 
+  text-transform: capitalize; 
+  color: black; 
+  align-items: center; 
+  margin-top: 30px;
+}

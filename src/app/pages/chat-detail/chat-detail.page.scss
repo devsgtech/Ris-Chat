@@ -1,0 +1,176 @@
+.msg-item{
+    .bubble {
+      margin: 5px 0;
+      max-width: 90%;
+      .msg {
+        padding: 8px 10px !important;
+        white-space: pre-wrap;
+        min-width: 73px;
+        word-break: break-word;
+        position: relative;
+        .endIcon{
+          position: absolute;
+          font-size: 15px;
+          bottom: 3px;
+          right: 5px;
+          color: var(--ion-color-primary);
+        }
+      }
+      .msg::before{
+        content: "";
+        right: -10px;
+        bottom: 0;
+        background: linear-gradient(45deg, #A56AFF 0%, #A56AFF 50%,transparent 50%,transparent);
+        padding: 9px 12px !important;
+        position: absolute;
+        .endIcon{
+          position: absolute;
+          font-size: 15px;
+          bottom: 3px;
+          right: 5px;
+          color: var(--ion-color-primary);
+        }
+      }
+      .msg-time {
+        min-width: 95px;
+      }
+    }
+    .other {
+        margin-left: 10px;
+      .msg{
+        color: var(--ion-color-white);
+        background: #e1e0e0;
+        color: black;
+        margin-left: 6px;
+        border-radius: 10px 10px 10px 0px;
+        max-width: 270px !important;
+      }
+      .msg::before{
+        content: "";
+        left: -10px;
+        bottom: 0;
+        width: 0px;
+        background: linear-gradient(315deg, #e1e0e0 0%, #e1e0e0 50%, transparent 50%, transparent);
+        padding: 8px 9px !important; 
+        position: absolute;
+      }
+      .msg-time {
+        text-align: left !important;
+        padding-right: 10px !important;
+        font-size: x-small;
+        margin-top: 5px;
+      }
+    }
+    .me {
+        margin-right: 0px;
+      .msg{
+        background: #A56AFF;
+        color: white;
+        border-radius: 10px 10px 0px 10px;;
+        padding-right: 10px !important;
+        max-width: 270px !important;
+      }
+      msg::before{
+        content: "";
+        right: -10px;
+        bottom: 0;
+        padding: 9px 12px !important;
+        position: absolute;
+      }
+      .msg-time {
+        color: var(--ion-color-black) !important;
+        text-align: right !important;
+        padding-left: 10px !important;
+        font-size: x-small;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .chat-container {
+    height: 100%; /* Adjust the height as needed */
+    overflow-y: scroll; /* Enable vertical scrolling */
+  }
+  .checkmark_blue{
+    float: right;
+    color: rgb(0, 120, 255);
+    width: 15px; transform: scale(1.7);
+  }
+  .checkmark_black{
+    float: right;
+    color: grey;
+    width: 15px; transform: scale(1.7);
+  }
+  .footer-md::before {
+    height: 0px;
+  }
+  ion-fab-button {
+    --background: #ffffff;
+    --border-radius: 30px;
+    --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    --color: black;
+  }
+  .input{
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+    background: white;
+    height: 40px;
+    margin-bottom: 15px;
+    display: flex;
+    padding-left: 10px;
+    padding-top: 0px;
+    color: black;
+    }
+.inputField{
+    --highlight-color-focused: none; 
+     --highlight-color-valid: none; 
+     --highlight-color-invalid: none;
+    --highlight-color: none;
+    min-height: 40px;
+}    
+.footerClass{
+    margin-bottom: env(safe-area-inset-bottom);
+}
+.white1{
+  color:#8945EF;
+  --color:#8945EF;
+}
+.btn{
+  text-transform: none;
+  --border-radius: 30px;
+  }
+.colIcon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  --ion-background-color: white;
+  --min-height: 50px;
+  --background: white;
+}
+.title {
+  font-size: 1.4rem !important;
+  font-weight: 600;
+  padding-left: 0px;
+  color: #8945EF !important;
+  padding-inline: 0px;
+  text-align: -webkit-left;
+}
+ion-button.save_button.ios{
+  margin-bottom: calc(env(safe-area-inset-bottom));
+}
+.ios.title{
+  font-size: 1.4rem !important;
+  font-weight: 600;
+  color: #8945EF !important;
+  padding-inline: 0px;
+  text-align: -webkit-left;
+  padding-inline-start: 55px;
+}
+.name{
+  text-transform: capitalize;
+  color: #A56AFF;
+}

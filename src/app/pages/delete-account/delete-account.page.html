@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar class="content">
+    <ion-buttons slot="start">
+      <ion-button class="white1" (click)="back()"><ion-icon size="large" name="arrow-back-circle-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title class="title" >Delete Account </ion-title>
+    <ion-icon slot="end" style="margin-right: 20px; height: 26px; width: 22%;" [src]="img.AppLogo"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="height: 100%; width: 100%;">
+    <ng-container>
+      <form [formGroup]="deleteForm" (ngSubmit)="delete()">
+        <div class="marginLR">
+          Enter your email address
+          <ion-input class="userfield" placeholder="Enter email address"
+            type="email" formControlName="mail" >
+          </ion-input>
+        </div>
+        <div style="margin-left: 25px;">
+          <app-form-error class="error" [errorMessage]="errorMessages.INVALID_EMAIL" [showError]="validationCheck('mail')"></app-form-error>
+        </div>
+        <div class="marginLR">
+          Enter your username
+          <ion-input class="userfield" placeholder="Enter username"
+            pattern="^[a-zA-Z0-9_.]+$"
+            type="text" formControlName="username" >
+          </ion-input>
+        </div>
+        <div style="margin-left: 25px;">
+          <app-form-error class="error" [errorMessage]="errorMessages.INVALID_USERNAME" [showError]="validationCheck('username')"></app-form-error>
+        </div>
+        <div style="margin-left: 20px; margin-top: 20px;
+        margin-right: 20px;">
+        Enter your reason
+          <ion-textarea [autoGrow]="true"
+          class="issue" type="text"
+          formControlName="reason" 
+          placeholder="Enter your reason">
+          </ion-textarea>
+        </div>
+        <div style="margin-left: 25px;">
+          <app-form-error class="error" [errorMessage]="errorMessages.INVALID_DESCRIPTION" [showError]="validationCheck('reason')"></app-form-error>
+        </div>
+      </form>
+    </ng-container>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="!hideButtomKeyboardOpen" style="margin-bottom: env(safe-area-inset-bottom);  background: white;">
+   <ion-button (click)="delete()" shape="round" class="reportButton"
+    expand="full">Deactivate</ion-button>
+</ion-footer>

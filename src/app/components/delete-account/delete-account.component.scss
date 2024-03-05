@@ -1,0 +1,53 @@
+.delete-alert {
+    --background: rgba(0, 0, 0, 0.5);
+  }
+  .inputs {
+    font-size: 12px;
+    font-family: "regular", sans-serif;
+    --highlight-color: none;
+    --highlight-color-invalid: none;
+  }
+
+ion-button {
+  margin: 0 5px;
+}
+.footerDiv{
+  display: flex; 
+  justify-content: space-evenly; 
+  align-items: center; 
+  margin-top: 5%;
+}
+.delete-content {
+  text-align: center;
+}
+.confirmbutton {
+  --border-radius: 10px;
+  margin-top: 5%;
+  margin-left: 18px;
+  margin-right: 18px;
+  --background: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
+  --background-activated: linear-gradient(91deg, #8945EF 0%, #8945ef73 100%);
+  font-size: 15px;
+  text-transform: none;
+}
+.cancelbutton {
+  --border-radius: 10px;
+  margin-top: 5%;
+  margin-left: 18px;
+  margin-right: 18px;
+  --background: #484848;
+  font-size: 15px;
+  text-transform: none;
+}
+.delete-box {
+  position: fixed;
+  width: 70%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
