@@ -56,8 +56,8 @@
         labelPlacement="floating" placeholder="Email"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-input class="inputClass" errorText="Invalid phone number" maxlength="10" formControlName="phone_number"  pattern="^[0-9]{9,10}$"
-        type="tel" label="Phone Number" labelPlacement="floating" placeholder="Phone Number"></ion-input>
+        <ion-input class="inputClass" errorText="Invalid phone number" maxlength="11" formControlName="phone_number" pattern="^\+?[0-9]{8,11}$"
+        type="tel" label="Phone Number" labelPlacement="floating" placeholder="Phone Number"></ion-input> <!--  pattern="^[0-9]{9,10}$" -->
       </ion-item>
       <ion-item lines="none">
         <ion-select (click)="selectboxtouchgender = true" [ngClass]="forfontgender()" formControlName="gender" color="danger" 

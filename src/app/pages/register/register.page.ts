@@ -26,6 +26,18 @@ export class RegisterPage implements OnInit {
   emailMatch : boolean = false;
   usernameMatch : boolean = false;
   platform1 : any;
+  Grades = [
+    {value : 1,grade : 'Grade 1'},
+    {value : 2,grade : 'Grade 2'},
+    {value : 3,grade : 'Grade 3'},
+    {value : 4,grade : 'Grade 4'},
+    {value : 5,grade : 'Grade 5'},
+    {value : 6,grade : 'Grade 6'},
+    {value : 7,grade : 'Grade VII'},
+    {value : 8,grade : 'Grade VIII'},
+    {value : 9,grade : 'Grade IX'},
+    {value : 10,grade : 'Grade X'}
+  ]
 
   constructor(private navCtrl: NavController,
     private auth: AuthenticationService,
@@ -49,12 +61,13 @@ export class RegisterPage implements OnInit {
 
   }
   profileform(){
+    console.log("NEW CHANGES UPDATED NOW 15:")
     this.profileFORM = this.fb.group({
       first_name: new FormControl("", Validators.compose([Validators.required,Validators.minLength(3)])),
       last_name: new FormControl("", Validators.compose([Validators.required])),
       username: new FormControl("", Validators.compose([Validators.required,Validators.minLength(5)])),
       email: new FormControl("", Validators.compose([Validators.required])),
-      phone_number: new FormControl("", Validators.compose([Validators.required,Validators.minLength(9),Validators.maxLength(10)])),
+      phone_number: new FormControl("", Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(11)])),
       gender: new FormControl("", Validators.compose([Validators.required])),
       dob: new FormControl("", Validators.compose([Validators.required, this.dateValidator1()])),
       grade: new FormControl("", Validators.compose([Validators.required])),

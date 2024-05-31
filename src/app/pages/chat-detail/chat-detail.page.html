@@ -45,6 +45,16 @@
       </ng-container>
     </ion-list>
   </ng-container>
+  <ng-container *ngIf="chatHistory?.length == 0">
+    <div style="margin-top: 33%;">
+      <div class="iconDiv">
+        <ion-icon name="document-text-outline"></ion-icon>
+      </div>
+      <p class="msgDiv">
+        No Messages Found
+      </p>
+    </div>
+  </ng-container>
 </ion-content>
 <ion-footer class="footerClass">
   <form [formGroup]="testForm" (submit)="onSubmit()"> 

@@ -63,7 +63,6 @@ export class ChatStatusUpdateService {
     http.send(messageData);
     http.onreadystatechange = async (res) => {
       if (http.readyState === 4) {
-       
           if (http.status === 401) {
             await this.refreshToken(message);
           }

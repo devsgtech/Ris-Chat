@@ -105,16 +105,16 @@ export class Tab1Page {
         if (existingChat !== -1) {
           this.allChats[existingChat] = {
             key: val1,
-            value: lastItem.message,
-            sentBy: lastItem.sentby,
-            timeStamp : lastItem.timestamp,
+            value: lastItem?.message,
+            sentBy: lastItem?.sentby,
+            timeStamp : lastItem?.timestamp,
           }; 
         } else {
           this.allChats.push({
             key: val1,
-            value: lastItem.message,
-            sentBy: lastItem.sentby,
-            timeStamp : lastItem.timestamp,
+            value: lastItem?.message,
+            sentBy: lastItem?.sentby,
+            timeStamp : lastItem?.timestamp,
           });
         }
         this.allChats.sort((a:any, b:any) => b.timeStamp - a.timeStamp);

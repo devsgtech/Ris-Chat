@@ -129,7 +129,23 @@ export class EditProfilePage implements OnInit {
     this.profileFORM.controls['phone_number'].setValue(values.phone_number)
     this.profileFORM.controls['gender'].setValue(values.gender)
     this.profileFORM.controls['dob'].setValue(values.dob)
-    this.grade = "Grade - "+values.grade;
+    if(values.grade < 7)
+    {
+      this.grade = "Grade - "+values.grade;
+    }
+    else
+    {
+      if(values.grade == 7)
+      this.grade = "Grade - VII";
+      if(values.grade == 8)
+      this.grade = "Grade - VIII";
+      if(values.grade == 9)
+      this.grade = "Grade - IX";
+      if(values.grade == 10)
+      this.grade = "Grade - X";
+
+
+    }
     this.cdRef.detectChanges();
   }
   pop(){
@@ -141,7 +157,7 @@ export class EditProfilePage implements OnInit {
       last_name: new FormControl("", Validators.compose([Validators.required])),
       username: new FormControl("", Validators.compose([Validators.required,Validators.minLength(5)])),
       email: new FormControl("", Validators.compose([Validators.required])),
-      phone_number: new FormControl("", Validators.compose([Validators.required,Validators.minLength(9),Validators.maxLength(10)])),
+      phone_number: new FormControl("", Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(11)])),
       gender: new FormControl("", Validators.compose([Validators.required])),
       dob: new FormControl("", Validators.compose([Validators.required, this.dateValidator1()])),
       password: new FormControl("", Validators.compose([Validators.required,Validators.minLength(6)])),

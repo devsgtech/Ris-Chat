@@ -44,7 +44,7 @@ export class ChatDetailPage implements OnInit {
       this.onScreen = true;
       this.helper.presentLoading("Loading...");
        setTimeout( () => {
-          this.chatUpdateStatus.scrollToBottomMutation(this.scrollVanish, this.chatList.nativeElement);
+          this.chatUpdateStatus.scrollToBottomMutation(this.scrollVanish, this.chatList?.nativeElement);
           this.helper.dismissLoading(2);
         }, 1000);
 

@@ -86,7 +86,18 @@
       }
     }
   }
-
+  .iconDiv{
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .msgDiv{
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .chat-container {
     height: 100%; /* Adjust the height as needed */
     overflow-y: scroll; /* Enable vertical scrolling */

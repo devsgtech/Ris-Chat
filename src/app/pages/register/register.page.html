@@ -18,14 +18,16 @@
         <ion-input errorText="Invalid last name" formControlName="last_name" label="Last Name" labelPlacement="floating" placeholder="Last Name"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-input errorText="Invalid Username" formControlName="username" pattern="^[a-zA-Z0-9_.]+$" label="Username" labelPlacement="floating" placeholder="Username"></ion-input>
+        <ion-input errorText="Invalid Username" formControlName="username" pattern="^[a-zA-Z0-9_.]+$" 
+        label="Username" labelPlacement="floating" placeholder="Username"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-input errorText="Invalid Email" formControlName="email" label="Email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-z]{2,}$" labelPlacement="floating" placeholder="Email"></ion-input>
+        <ion-input errorText="Invalid Email" formControlName="email" label="Email"
+         pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-z]{2,}$" labelPlacement="floating" placeholder="Email"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-input errorText="Invalid phone number" maxlength="10" formControlName="phone_number"  pattern="^[0-9]{9,10}$"
-        type="tel" label="Phone Number" labelPlacement="floating" placeholder="Phone Number"></ion-input>
+        <ion-input errorText="Invalid phone number" maxlength="11" formControlName="phone_number"  pattern="^\+?[0-9]{8,11}$"
+        type="tel" label="Phone Number" labelPlacement="floating" placeholder="Phone Number"></ion-input>    <!--"^[0-9]{9,10}$"  -->
       </ion-item>
       <ion-item lines="none">
         <ion-select (click)="selectboxtouchgender = true" [ngClass]="forfontgender()" formControlName="gender" color="danger" class="neww" label="Select Gender" label-placement="floating">
@@ -40,9 +42,9 @@
       </ion-item>
       <ion-item lines="none">
         <ion-select (click)="selectboxtouchgrade = true" [ngClass]="forfontgrade()" formControlName="grade" color="danger" class="neww" label="Select Grade" label-placement="floating">
-          <!-- <ion-select-option value="8">Grade VIII</ion-select-option>
-          <ion-select-option value="9">Grade IX</ion-select-option> -->
-          <ion-select-option value="10">Grade X</ion-select-option>
+          <ng-container *ngFor="let item of Grades">
+            <ion-select-option value={{item.value}}>{{item.grade}}</ion-select-option>
+          </ng-container>
         </ion-select>
       </ion-item>
       <span class="invalidgenderspan" *ngIf="selectboxtouchgrade && profileFORM.get('grade')?.value == '' ">Invalid grade</span>
